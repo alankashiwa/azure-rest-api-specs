@@ -42,7 +42,7 @@ find specification/maps/data-plane/*/* -name "readme.md" -print | while read REA
     + {module: "dist-esm/index.js", types: "types/'"${SERVICE_NAME,,}"'.d.ts"}
     | .dependencies += { 
       "@azure/core-paging": "^1.1.1",
-      "@azure/core-lro": "^1.0.2",
+      "@azure/core-lro": "^2.0.0",
       "@azure/abort-controller": "^1.0.0",
       "@azure/core-asynciterator-polyfill": "^1.0.0",
     }
@@ -95,3 +95,13 @@ find sdk/maps/maps-*/ -maxdepth 1 -name "package.json" -print | while read PACKA
   rushx pack
   cd $RP
 done
+
+# Taras 
+# Loading AutoRest core '/home/ambientlight/.autorest/@autorest_core@3.1.3/node_modules/@autorest/core/dist' (3.1.3)
+# INFORMATION: > Loading AutoRest extension '@autorest/typescript' (6.0.0-alpha.20210514.1->6.0.0-alpha.20210514.1)
+# INFORMATION: > Loading AutoRest extension '@autorest/modelerfour' (4.15.456->4.15.456)
+
+# Alan
+# Loading AutoRest core      '/root/.autorest/@autorest_core@3.1.3/node_modules/@autorest/core/dist' (3.1.3)
+# INFORMATION: > Loading AutoRest extension '@autorest/typescript' (latest->6.0.0-beta.8)
+# INFORMATION: > Loading AutoRest extension '@autorest/modelerfour' (4.19.3->4.19.3)
