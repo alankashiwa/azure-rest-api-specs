@@ -41,10 +41,10 @@ find specification/maps/data-plane/*/* -name "readme.md" -print | while read REA
     | del(."//sampleConfiguration")
     + {module: "dist-esm/index.js", types: "types/'"${SERVICE_NAME,,}"'.d.ts"}
     | .dependencies += { 
+      "@azure/core-client": "^1.0.0",
       "@azure/core-paging": "^1.1.1",
       "@azure/core-lro": "^2.0.0",
-      "@azure/abort-controller": "^1.0.0",
-      "@azure/core-asynciterator-polyfill": "^1.0.0",
+      "@azure/core-rest-pipeline": "^1.1.0",
     }
     | .files = ["dist/", "dist-esm/", "types/'"${SERVICE_NAME,,}"'.d.ts"]
     | .scripts."build:types" = "downlevel-dts types types/3.1"
@@ -78,23 +78,23 @@ find specification/maps/data-plane/*/* -name "readme.md" -print | while read REA
   cd -
 done
 
-cd $SDK_PATH
-rush update 
+# cd $SDK_PATH
+# rush update --purge
 
-find sdk/maps/maps-*/ -maxdepth 1 -name "package.json" -print | while read PACKAGEJSON_PATH ; do 
-  TARGET_PATH="$(dirname $PACKAGEJSON_PATH)"
-  RP=$(pwd)
-  cd $TARGET_PATH
+# find sdk/maps/maps-*/ -maxdepth 1 -name "package.json" -print | while read PACKAGEJSON_PATH ; do 
+#   TARGET_PATH="$(dirname $PACKAGEJSON_PATH)"
+#   RP=$(pwd)
+#   cd $TARGET_PATH
   
-  #FIXME: circumvent @azure/core-lro not building at 1.0.2??? manual build in ./node_modules...
-  cd ./node_modules/@azure/core-lro/
-  rushx build
-  cd -
+#   #FIXME: circumvent @azure/core-lro not building at 1.0.2??? manual build in ./node_modules...
+#   # cd ./node_modules/@azure/core-lro/
+#   # rushx build
+#   # cd -
 
-  rushx build
-  rushx pack
-  cd $RP
-done
+#   rushx build
+#   rushx pack
+#   cd $RP
+# done
 
 # Taras 
 # Loading AutoRest core '/home/ambientlight/.autorest/@autorest_core@3.1.3/node_modules/@autorest/core/dist' (3.1.3)
