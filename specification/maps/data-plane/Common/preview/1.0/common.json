@@ -556,6 +556,7 @@
       "enum": [
         "json"
       ],
+      "default": "json",
       "x-ms-enum": {
         "name": "ResponseFormat",
         "modelAsString": true,
@@ -578,6 +579,7 @@
         "json",
         "xml"
       ],
+      "default": "json",
       "x-ms-enum": {
         "name": "TextFormat",
         "modelAsString": true,
