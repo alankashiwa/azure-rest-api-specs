@@ -8,7 +8,7 @@ azure-arm: false
 package-name: "@azure/maps-geolocation"
 license-header: MICROSOFT_MIT_NO_VERSION
 output-folder: "$(typescript-sdks-folder)/sdk/maps/maps-geolocation"
-source-code-folder-path: ""
+source-code-folder-path: "src/generated"
 clear-output-folder: false
 generate-metadata: false
 ```
