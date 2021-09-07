@@ -5,12 +5,15 @@ Please also specify `--typescript-sdks-folder=<path to root folder of your azure
 
 ``` yaml $(typescript)
 azure-arm: false
+title: GeneratedClient
 package-name: "@azure/maps-route"
 license-header: MICROSOFT_MIT_NO_VERSION
 output-folder: "$(typescript-sdks-folder)/sdk/maps/maps-route"
 source-code-folder-path: "src/generated"
 clear-output-folder: false
 generate-metadata: false
+add-credentials: false
+credential-scopes: ""
 directive:
   - from: route.json
     where: $.definitions.PostRouteDirectionsRequestBody.properties.supportingPoints
