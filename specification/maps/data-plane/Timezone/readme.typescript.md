@@ -14,4 +14,7 @@ clear-output-folder: false
 generate-metadata: false
 add-credentials: false
 credential-scopes: ""
+use-extension:
+  "@autorest/typescript": "6.0.0-beta.12"
+  "@autorest/modelerfour": "4.19.3"
 ```
