@@ -193,6 +193,7 @@
     },
     "HillinessDegree": {
       "name": "hilliness",
+      "x-ms-client-name": "InclineDegree",
       "in": "query",
       "description": "Degree of hilliness for thrilling route. This parameter can only be used in conjunction with `routeType`=thrilling.",
       "type": "string",
@@ -356,11 +357,11 @@
       "x-ms-parameter-location": "method"
     },
     "ConstantSpeedConsumptionInLitersPerHundredkm": {
+      "x-ms-client-name": "ConstantSpeedConsumptionInLitersPerHundredKm",
       "name": "constantSpeedConsumptionInLitersPerHundredkm",
       "in": "query",
       "description": "\n\nSpecifies the speed-dependent component of consumption.\n\nProvided as an unordered list of colon-delimited speed & consumption-rate pairs. The list defines points on a consumption curve. Consumption rates for speeds not in the list are found as follows:\n\n * by linear interpolation, if the given speed lies in between two speeds in the list\n\n * by linear extrapolation otherwise, assuming a constant (ΔConsumption/ΔSpeed) determined by the nearest two points in the list\n\nThe list must contain between 1 and 25 points (inclusive), and may not contain duplicate points for the same speed. If it only contains a single point, then the consumption rate of that point is used without further processing.\n\nConsumption specified for the largest speed must be greater than or equal to that of the penultimate largest speed. This ensures that extrapolation does not lead to negative consumption rates.\n\nSimilarly, consumption values specified for the two smallest speeds in the list cannot lead to a negative consumption rate for any smaller speed.\n\nThe valid range for the consumption values(expressed in l/100km) is between 0.01 and 100000.0.\n\nSensible Values : 50,6.3:130,11.5\n\n**Note** : This parameter is required for **The Combustion Consumption Model**.",
-      "type": "number",
-      "format": "float",
+      "type": "string",
       "x-ms-parameter-location": "method"
     },
     "CurrentFuelInLiters": {
@@ -380,6 +381,7 @@
       "x-ms-parameter-location": "method"
     },
     "FuelEnergyDensityInMJoulesPerLiter": {
+      "x-ms-client-name": "FuelEnergyDensityInMegajoulesPerLiter",
       "name": "fuelEnergyDensityInMJoulesPerLiter",
       "in": "query",
       "description": "Specifies the amount of chemical energy stored in one liter of fuel in megajoules (MJ). It is used in conjunction with the ***Efficiency** parameters for conversions between saved or consumed energy and fuel. For example, energy density is 34.2 MJ/l for gasoline, and 35.8 MJ/l for Diesel fuel.\n\nThis parameter is required if any ***Efficiency** parameter is set.\n\nSensible Values : 34.2",
@@ -393,6 +395,8 @@
       "description": "Specifies the efficiency of converting chemical energy stored in fuel to kinetic energy when the vehicle accelerates _(i.e. KineticEnergyGained/ChemicalEnergyConsumed). ChemicalEnergyConsumed_ is obtained by converting consumed fuel to chemical energy using **fuelEnergyDensityInMJoulesPerLiter**.\n\nMust be paired with **decelerationEfficiency**.\n\nThe range of values allowed are 0.0 to 1/**decelerationEfficiency**.\n\nSensible Values : for **Combustion Model** : 0.33, for **Electric Model** : 0.66",
       "type": "number",
       "format": "float",
+      "minimum": 0,
+      "maximum": 1,
       "x-ms-parameter-location": "method"
     },
     "DecelerationEfficiency": {
@@ -401,6 +405,8 @@
       "description": "Specifies the efficiency of converting kinetic energy to saved (not consumed) fuel when the vehicle decelerates _(i.e. ChemicalEnergySaved/KineticEnergyLost). ChemicalEnergySaved_ is obtained by converting saved (not consumed) fuel to energy using **fuelEnergyDensityInMJoulesPerLiter**.\n\nMust be paired with **accelerationEfficiency**.\n\nThe range of values allowed are 0.0 to 1/**accelerationEfficiency**.\n\nSensible Values : for **Combustion Model** : 0.83, for **Electric Model** : 0.91",
       "type": "number",
       "format": "float",
+      "minimum": 0,
+      "maximum": 1,
       "x-ms-parameter-location": "method"
     },
     "UphillEfficiency": {
@@ -409,6 +415,8 @@
       "description": "Specifies the efficiency of converting chemical energy stored in fuel to potential energy when the vehicle gains elevation _(i.e. PotentialEnergyGained/ChemicalEnergyConsumed). ChemicalEnergyConsumed_ is obtained by converting consumed fuel to chemical energy using **fuelEnergyDensityInMJoulesPerLiter**.\n\nMust be paired with **downhillEfficiency**.\n\nThe range of values allowed are 0.0 to 1/**downhillEfficiency**.\n\nSensible Values : for **Combustion Model** : 0.27, for **Electric Model** : 0.74",
       "type": "number",
       "format": "float",
+      "minimum": 0,
+      "maximum": 1,
       "x-ms-parameter-location": "method"
     },
     "DownhillEfficiency": {
@@ -417,10 +425,13 @@
       "description": "Specifies the efficiency of converting potential energy to saved (not consumed) fuel when the vehicle loses elevation _(i.e. ChemicalEnergySaved/PotentialEnergyLost). ChemicalEnergySaved_ is obtained by converting saved (not consumed) fuel to energy using **fuelEnergyDensityInMJoulesPerLiter**.\n\nMust be paired with **uphillEfficiency**.\n\nThe range of values allowed are 0.0 to 1/**uphillEfficiency**.\n\nSensible Values : for **Combustion Model** : 0.51, for **Electric Model** : 0.73",
       "type": "number",
       "format": "float",
+      "minimum": 0,
+      "maximum": 1,
       "x-ms-parameter-location": "method"
     },
     "ConstantSpeedConsumptionInkWhPerHundredkm": {
       "name": "constantSpeedConsumptionInkWhPerHundredkm",
+      "x-ms-client-name": "ConstantSpeedConsumptionInkWhPerHundredKm",
       "in": "query",
       "description": "Specifies the speed-dependent component of consumption.\n\nProvided as an unordered list of speed/consumption-rate pairs. The list defines points on a consumption curve. Consumption rates for speeds not in the list are found as follows:\n\n* by linear interpolation, if the given speed lies in between two speeds in the list\n\n* by linear extrapolation otherwise, assuming a constant (ΔConsumption/ΔSpeed) determined by the nearest two points in the list\n\nThe list must contain between 1 and 25 points (inclusive), and may not contain duplicate points for the same speed. If it only contains a single point, then the consumption rate of that point is used without further processing.\n\nConsumption specified for the largest speed must be greater than or equal to that of the penultimate largest speed. This ensures that extrapolation does not lead to negative consumption rates.\n\nSimilarly, consumption values specified for the two smallest speeds in the list cannot lead to a negative consumption rate for any smaller  speed.\n\nThe valid range for the consumption values(expressed in kWh/100km) is between 0.01 and 100000.0.\n\nSensible Values : 50,8.2:130,21.3\n\nThis parameter is required for **Electric consumption model**.",
       "type": "string",
@@ -442,9 +453,11 @@
     },
     "AuxiliaryPowerInkW": {
       "name": "auxiliaryPowerInkW",
+      "x-ms-client-name": "AuxiliaryPowerInKwH",
       "in": "query",
       "description": "Specifies the amount of power consumed for sustaining auxiliary systems, in kilowatts (kW).\n\nIt can be used to specify consumption due to devices and systems such as AC systems, radio, heating, etc.\n\nSensible Values : 1.7",
-      "type": "string",
+      "type": "number",
+      "format": "float",
       "x-ms-parameter-location": "method"
     },
     "VehicleWeightMatrix": {
@@ -525,6 +538,7 @@
     },
     "SectionType": {
       "name": "sectionType",
+      "x-ms-client-name": "FilterSectionType",
       "in": "query",
       "description": "Specifies which of the section types is reported in the route response. <br><br>For example if sectionType = pedestrian the sections which are suited for pedestrians only are returned. Multiple types can be used. The default sectionType refers to the travelMode input. By default travelMode is set to car",
       "type": "string",
@@ -637,6 +651,7 @@
       "x-ms-parameter-location": "method"
     },
     "ComputeTravelTimeFor": {
+      "x-ms-client-name": "ComputeTravelTime",
       "name": "computeTravelTimeFor",
       "in": "query",
       "description": "Specifies whether to return additional travel times using different types of traffic information (none, historic, live) as well as the default best-estimate travel time.",
@@ -1059,6 +1074,7 @@
           },
           {
             "name": "minDeviationDistance",
+            "x-ms-client-name": "minDeviationDistanceInMeters",
             "in": "query",
             "description": "All alternative routes returned will follow the reference route (see section POST Requests) from the origin point of the calculateRoute request for at least this number of meters. Can only be used when reconstructing a route. The minDeviationDistance parameter cannot be used in conjunction with arriveAt",
             "type": "integer"
@@ -1753,6 +1769,7 @@
       }
     },
     "RouteDirectionsSummary": {
+      "x-ms-client-name": "RouteSummary",
       "description": "Summary object",
       "type": "object",
       "readOnly": true,
@@ -2349,6 +2366,7 @@
       }
     },
     "GetRouteRangeResponse": {
+      "x-ms-client-name": "RouteRangeResponse",
       "description": "This object is returned from a successful Route Reachable Range call",
       "type": "object",
       "properties": {
@@ -2477,6 +2495,7 @@
       "readOnly": true,
       "properties": {
         "routeSummary": {
+          "x-ms-client-name": "summary",
           "$ref": "#/definitions/RouteLegSummary"
         }
       }
