@@ -2005,10 +2005,6 @@
           "readOnly": true,
           "$ref": "#/definitions/DataSources"
         },
-        "matchType": {
-          "$ref": "#/definitions/MatchType",
-          "description": "Information on the type of match.\n\nOne of:\n  * AddressPoint\n  * HouseNumberRange\n  * Street"
-        },
         "detourTime": {
           "description": "Detour time in seconds. Only returned for calls to the Search Along Route API.",
           "type": "integer",
