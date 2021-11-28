@@ -1909,12 +1909,6 @@
           "type": "integer",
           "readOnly": true
         },
-        "limit": {
-          "x-ms-client-name": "top",
-          "description": "Maximum number of responses that will be returned",
-          "readOnly": true,
-          "type": "integer"
-        },
         "offset": {
           "x-ms-client-name": "skip",
           "description": "The starting offset of the returned Results within the full Result set.",
