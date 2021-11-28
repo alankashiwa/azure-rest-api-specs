@@ -2073,7 +2073,7 @@
         "summary": {
           "description": "Summary object for a Search Address Reverse response",
           "readOnly": true,
-          "$ref": "#/definitions/SearchSummary"
+          "$ref": "#/definitions/ReverseSearchSummary"
         },
         "addresses": {
           "description": "Addresses array",
@@ -2082,6 +2082,23 @@
           "items": {
             "$ref": "#/definitions/ReverseSearchAddressResultItem"
           }
+        }
+      }
+    },
+    "ReverseSearchSummary": {
+      "description": "Summary object for a Search API response.",
+      "type": "object",
+      "readOnly": true,
+      "properties": {
+        "queryTime": {
+          "description": "Time spent resolving the query, in milliseconds.",
+          "type": "integer",
+          "readOnly": true
+        },
+        "numResults": {
+          "description": "Number of results in the response.",
+          "type": "integer",
+          "readOnly": true
         }
       }
     },
@@ -2117,7 +2134,7 @@
         "summary": {
           "description": "Summary object for a Search Address Reverse Cross Street response",
           "readOnly": true,
-          "$ref": "#/definitions/SearchSummary"
+          "$ref": "#/definitions/ReverseSearchSummary"
         },
         "addresses": {
           "description": "Addresses array",
