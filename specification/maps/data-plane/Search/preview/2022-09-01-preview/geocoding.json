@@ -745,14 +745,16 @@
           "description": "id of the batchItem which would be the same as the id in the request",
           "type": "string"
         },
-        "type": {
-          "$ref": "#/definitions/FeatureType"
-        },
-        "features": {
-          "$ref": "#/definitions/Features"
-        },
-        "nextLink": {
-          "$ref": "#/definitions/NextLink"
+        "geoJsonData": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "$ref": "#/definitions/FeatureType"
+            },
+            "features": {
+              "$ref": "#/definitions/Features"
+            }
+          }
         },
         "error": {
           "$ref": "../../../../../common-types/data-plane/v1/types.json#/definitions/ErrorDetail"
@@ -852,14 +854,16 @@
       "description": "This object is returned from a successful Geocoding call",
       "type": "object",
       "properties": {
-        "type": {
-          "$ref": "#/definitions/FeatureType"
-        },
-        "features": {
-          "$ref": "#/definitions/Features"
-        },
-        "nextLink": {
-          "$ref": "#/definitions/NextLink"
+        "geoJsonData": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "$ref": "#/definitions/FeatureType"
+            },
+            "features": {
+              "$ref": "#/definitions/Features"
+            }
+          }
         }
       }
     },
